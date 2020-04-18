@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville');
+
+header {
+    height: 80px;
+}
+
+footer {
+    height: 80px;
+}
+
+.nav-side {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    max-width: 250px;
+    background-color: cornflowerblue;
+    box-sizing: border-box;
+    padding: 20px;
+    color: #fff;
+    margin-left: -250px;
+}
+
+.nav-open {
+    margin-left: 0;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1)
+}
+
+.nav-side.nav-open .nav-toggle:before {
+    content: "\2715"
+}
+
+.nav-toggle {
+    position: absolute;
+    right: -40px;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background-color: cornflowerblue;
+    text-decoration: none;
+    text-align: center;
+    border-bottom-right-radius: 5px;
+    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.1)
+}
+
+.nav-toggle::before {
+    content: "\2192";
+    font-weight: 600;
+    color: #fff;
+    line-height: 40px;
+}
+
+.main-content {
+    /* display: flex; */
+}
+
+.grid-wrapper {
+    margin: auto;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(21rem, 1fr));
+    max-width: 75vw;
+}
+
+article[class*="recipe-card"] {}
+
+article[class*="recipe-card"] img {
+    width: 350px;
+    height: 500px;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+article[class*="recipe-card"] h1 {
+    font-family: 'Libre Baskerville', serif;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+article[class*="recipe-card"] time {
+    font-family: sans-serif;
+    padding-top: 10px;
+}

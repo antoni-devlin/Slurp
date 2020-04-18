@@ -20,6 +20,27 @@ footer {
     padding: 20px;
     color: #fff;
     margin-left: -250px;
+    font-family: sans-serif;
+    transition: margin 150ms ease-in-out;
+}
+
+.nav-side ul {
+    list-style: none;
+    font-size: 1.4rem;
+}
+
+.nav-side li {
+    padding-top: 1rem;
+    letter-spacing: 1px;
+}
+
+ul.categories {
+    font-size: 1rem;
+}
+
+.nav-side a {
+    text-decoration: none;
+    color: #fff;
 }
 
 .nav-open {
@@ -45,7 +66,7 @@ footer {
 }
 
 .nav-toggle::before {
-    content: "\2192";
+    content: "\2630";
     font-weight: 600;
     color: #fff;
     line-height: 40px;
@@ -63,13 +84,21 @@ footer {
     max-width: 75vw;
 }
 
-article[class*="recipe-card"] {}
+article[class*="recipe-card"] {
+    /* overflow: hidden; */
+}
 
 article[class*="recipe-card"] img {
     width: 350px;
     height: 500px;
     border-radius: 30px;
     object-fit: cover;
+    transition: top 1s ease-out;
+}
+
+article[class*="recipe-card"] img:hover {
+    position: relative;
+    top: -10px;
 }
 
 article[class*="recipe-card"] h1 {

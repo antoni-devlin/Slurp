@@ -1,3 +1,4 @@
 function toggleNav() {
-    document.getElementsByClassName(".nav-toggle").classList.toggle(".nav-open");
+    var element = document.getElementsByClassName("nav-side")[0];
+    element.classList.toggle("nav-open");
 }

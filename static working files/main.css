@@ -8,6 +8,8 @@ header {
 
 footer {
     height: 80px;
+    margin-top: -80px;
+    clear: both;
 }
 
 /* Nav styles */
@@ -130,7 +132,7 @@ article[class*="recipe-card"] time {
 }
 
 .wrapper img {
-    max-width: 50%;
+    max-width: 80%;
     margin: auto;
     display: block;
     border-radius: 10px;
@@ -150,9 +152,45 @@ ul.ingredients {
 ul.ingredients li {
     font-size: 15px;
     font-family: sans-serif;
-    padding: 10px 0;
+    padding: 20px 0;
+}
+
+.wrapper h2, .method h2 {
+  padding-left: 2rem;
+  position: relative;
+  left: -2rem;
+}
+
+.wrapper h2 {
+  width: 11rem;
+  background: rgba(255, 221, 28, 1);
+}
+
+.method h2 {
+  width: 9rem;
+  background: rgba(255, 221, 28, 1);
 }
 
 .method p {
     font-family: sans-serif;
+    line-height: 1.2rem;
+    letter-spacing: 0.5px;
+}
+
+/* .method p::first-line {
+  background: rgba(255, 221, 28, 1) ;
+} */
+
+/* Paragraph numbering */
+
+body {
+  /* Set "my-sec-counter" to 0 */
+  counter-reset: my-p-counter;
+}
+
+.method p::before {
+  /* Decrement "my-sec-counter" by 1 */
+  counter-increment: my-p-counter;
+  content: counter(my-p-counter) ". ";
+  font-weight: bold;
 }

@@ -1,4 +1,8 @@
 {% extends 'recipes/base.html' %}
+{% load static %}
 {% block content %}
-<h1>This is the recipe detail page!</h1>
+<a href="{% url 'home' %}">Home</a>
+<h1>Recipe detail page</h1>
+<h2>{{ recipe.name }}</h2>
+<img src="{{ recipe.image.url }}" alt="">
 {% endblock %}

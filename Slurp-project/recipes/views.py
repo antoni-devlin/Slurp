@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from .models import Recipe
 
 def home(request):
-   return render(request, "recipes/home.html")
+    recipes = Recipe.objects
+    return render(request, "recipes/home.html", {'recipes':recipes})
 
-def recipe_detail(request, slug=slug):
-    slug = "slug"
-    return render(request, "recipes/recipe_detail.html", {'slug':slug})
+def recipe_detail(request, recipe_id):
+    recipe_detail = get_object_or_404(Recipe, pk=recipe_id)
+    return render(request, "recipes/recipe_detail.html", {'recipe':recipe_detail})

@@ -1,5 +1,15 @@
 {% extends 'recipes/base.html' %}
-
+{% load static %}
 {% block content %}
-<h2>This is the homepage!</h2>
+
+
+<img src="{% static 'test.jpg' %}" alt="">
+
+<h1>All recipes</h1>
+{% for recipe in recipes.all %}
+<p>Recipe title: {{ recipe.name }}</p>
+<a href="{% url 'recipe_detail' recipe.id %}">Read recipe</a>
+<img src="{{recipe.image.url}}" alt="">
+<p>{{recipe.image.url}}</p>
+{% endfor %}
 {% endblock %}

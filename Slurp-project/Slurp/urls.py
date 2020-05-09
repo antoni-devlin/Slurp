@@ -22,5 +22,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('recipes/<int:recipe_id>', views.recipe_detail, name='recipe_detail')
+    path('recipes/<int:recipe_id>', views.recipe_detail, name='recipe_detail'),
+    path('recipes/new', views.new_recipe, name='new_recipe'),
+    path('recipes/edit/<int:recipe_id>', views.edit_recipe, name='edit_recipe'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

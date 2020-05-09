@@ -1,0 +1,19 @@
+{% extends 'recipes/base.html' %}
+{% load static %}
+{% block content %}
+
+<h2>{{ success_message }}</h2>
+{% if created_recipe_id %}
+  <a href="{% url 'edit_recipe' created_recipe_id %}">Edit recipe</a>
+{%  endif %}
+
+<h2>Add a recipe</h2>
+<p>This is where you can add a recipe.</p>
+<form enctype="multipart/form-data" method="POST" action="{% url 'new_recipe' %}" novalidate>
+  {% csrf_token %}
+  {{ recipeform.as_p }}
+  <input type="submit" name="submit" value="Create recipe">
+</form>
+
+
+{% endblock %}

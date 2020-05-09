@@ -22,11 +22,9 @@ class Category(models.Model):
 
 class Recipe(models.Model):
     name = models.CharField(max_length=150, blank=False, null=False)
-    slug = models.SlugField(max_length=50, unique=True)
-    date_added = models.DateField(auto_now_add=True)
+    date_added = models.DateField(auto_now_add=True, editable=False)
     image = models.ImageField(null=True, upload_to="images")
-    submitter = models.ManyToManyField(User)
-    prep_time = models.DurationField()
+    prep_time = models.TimeField(null=True)
     method = models.TextField()
     ingredients = models.ManyToManyField(Ingredient)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, blank=True, null=True)

@@ -1,0 +1,22 @@
+{% extends 'recipes/base.html' %}
+{% load static %}
+{% block content %}
+
+<h2>{{ success_message }}</h2>
+{% if created_recipe_id %}
+  <a href="{% url 'edit_recipe' created_recipe_id %}">Edit recipe</a>
+{%  endif %}
+
+<h2>Editing recipe: {{recipe.name}}</h2>
+{% if recipe.image %}
+<img src="{{ recipe.image.url }}" alt="">
+{% endif %}
+<p>This is where you can add a recipe.</p>
+<form enctype="multipart/form-data" method="POST" action="{% url 'edit_recipe' recipe.id %}">
+  {% csrf_token %}
+  {{ recipeform }}
+  <input type="submit" name="submit" value="Save recipe">
+</form>
+
+
+{% endblock %}

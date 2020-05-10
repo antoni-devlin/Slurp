@@ -1,3 +1,6 @@
 Forms
 Create recipe
 Update recipe
+Category view
+Tags
+Searching

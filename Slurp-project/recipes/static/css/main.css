@@ -141,6 +141,7 @@ article[class*="recipe-card"] time {
 .wrapper h1, h2 {
     font-family: 'Libre Baskerville', serif;
     letter-spacing: 1px;
+    z-index: -1;
     /* margin: 0; */
 }
 

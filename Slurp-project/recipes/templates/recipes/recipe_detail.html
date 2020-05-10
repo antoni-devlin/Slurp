@@ -1,8 +1,27 @@
 {% extends 'recipes/base.html' %}
 {% load static %}
-{% block content %}
-<a href="{% url 'home' %}">Home</a>
-<h1>Recipe detail page</h1>
-<h2>{{ recipe.name }}</h2>
-<img src="{{ recipe.image.url }}" alt="">
+
+
+{% block title %}{{recipe.name}}{% endblock%}
+
+{%block content%}
+    <main class="main-content">
+        <header>
+
+        </header>
+        <div class="wrapper">
+            <h1 class="recipe-name"> {{recipe.name }}</h1>
+            <img src="{{ recipe.image.url }}" alt="">
+            <h2>Ingredients</h2>
+            <ul class="ingredients" data-columns="2">
+                {% for ingredient in recipe.ingredients.all %}
+                <li>{{ ingredient.name }}</li>
+                {% endfor %}
+            </ul>
+            <div class="method">
+                <h2>Method</h2>
+                {{ recipe.method }}
+            </div>
+        </div>
+    </main>
 {% endblock %}

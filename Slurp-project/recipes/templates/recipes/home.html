@@ -1,15 +1,21 @@
 {% extends 'recipes/base.html' %}
 {% load static %}
+
+{% block title %}{{page_title}}{%  endblock %}
+
 {% block content %}
+    <main class="main-content">
+        <header>
 
-
-<img src="{% static 'test.jpg' %}" alt="">
-
-<h1>All recipes</h1>
-{% for recipe in recipes.all %}
-<p>Recipe title: {{ recipe.name }}</p>
-<a href="{% url 'recipe_detail' recipe.id %}">Read recipe</a>
-<img src="{{recipe.image.url}}" alt="">
-<p>{{recipe.image.url}}</p>
-{% endfor %}
+        </header>
+        <div class="grid-wrapper">
+          {% for recipe in recipes.all %}
+            <article onclick="location.href='{% url 'recipe_detail' recipe.id %}';" class="recipe-card">
+                <img src="{{ recipe.image.url }}" alt="">
+                <h1>{{ recipe.name }}</h1>
+                <!-- <time>2h</time> -->
+            </article>
+          {% endfor %}
+        </div>
+    </main>
 {% endblock %}

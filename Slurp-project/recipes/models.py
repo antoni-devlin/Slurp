@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
 
 
 class Ingredient(models.Model):
@@ -25,7 +26,7 @@ class Recipe(models.Model):
     date_added = models.DateField(auto_now_add=True, editable=False)
     image = models.ImageField(null=True, upload_to="images")
     prep_time = models.TimeField(null=True)
-    method = models.TextField()
+    method = RichTextField()
     ingredients = models.ManyToManyField(Ingredient)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, blank=True, null=True)
 

@@ -1,0 +1,21 @@
+{% extends 'recipes/base.html' %}
+{% load static %}
+
+{% block title %}{{page_title}}{%  endblock %}
+
+{% block content %}
+    <main class="main-content">
+        <header>
+
+        </header>
+        <div class="grid-wrapper">
+          {% for recipe in recipes.all %}
+            <article onclick="location.href='{% url 'recipe_detail' recipe.id %}';" class="recipe-card">
+                <img src="{{ recipe.image.url }}" alt="">
+                <h1>{{ recipe.name }}</h1>
+                <!-- <time>2h</time> -->
+            </article>
+          {% endfor %}
+        </div>
+    </main>
+{% endblock %}

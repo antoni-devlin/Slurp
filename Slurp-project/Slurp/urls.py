@@ -18,6 +18,7 @@ from django.urls import path
 from recipes import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +26,5 @@ urlpatterns = [
     path('recipes/<int:recipe_id>', views.recipe_detail, name='recipe_detail'),
     path('recipes/new', views.new_recipe, name='new_recipe'),
     path('recipes/edit/<int:recipe_id>', views.edit_recipe, name='edit_recipe'),
+    path('recipes/category/<str:category>', views.category_listing, name='category_listing'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

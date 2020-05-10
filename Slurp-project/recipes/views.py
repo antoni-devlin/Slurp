@@ -37,3 +37,8 @@ def edit_recipe(request, recipe_id):
             filled_form.save()
             form = filled_form
     return render(request, 'recipes/edit_recipe.html', {'recipeform':form, 'recipe':recipe})
+
+def category_listing(request, category):
+    recipes = Recipe.objects.filter(category__name=category)
+    print(len(recipes))
+    return render(request, 'recipes/category_listing.html', {'recipes':recipes})

@@ -2,3 +2,4 @@ venv
 *.pyc
 *.sqlite3
 .DS_Store
+TEMP\ static\ working\ files/

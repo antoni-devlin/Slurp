@@ -40,7 +40,24 @@ INSTALLED_APPS = [
     "recipes",
     "widget_tweaks",
     "ckeditor",
+    "storages",
 ]
+
+AWS_STORAGE_BUCKET_NAME = 'slurp-storage'
+AWS_S3_REGION_NAME = 'eu-west-2'
+AWS_ACCESS_KEY_ID = 'AKIAUNMCVAW4N5BUGUA2'
+AWS_SECRET_ACCESS_KEY = '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'
+
+# Tell django-storages the domain to use to refer to static files.
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+AWS_DEFAULT_ACL = None
+
+STATICFILES_LOCATION = 'static'
+STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+
+MEDIAFILES_LOCATION = 'media'
+DEFAULTFILE_STORAGE = 'custom_storages.MediaStorage'
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

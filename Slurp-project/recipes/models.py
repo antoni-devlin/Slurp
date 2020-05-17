@@ -11,6 +11,7 @@ class Ingredient(models.Model):
     def __str__(self):
         return self.name
 
+
 class Category(models.Model):
     name = models.CharField(max_length=150)
 
@@ -18,8 +19,9 @@ class Category(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'Category'
-        verbose_name_plural = 'Categories'
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
+
 
 class Recipe(models.Model):
     name = models.CharField(max_length=150, blank=False, null=False)
@@ -28,7 +30,9 @@ class Recipe(models.Model):
     prep_time = models.TimeField(null=True)
     method = RichTextField()
     ingredients = models.ManyToManyField(Ingredient)
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, blank=True, null=True)
+    category = models.ForeignKey(
+        Category, on_delete=models.SET_NULL, blank=True, null=True
+    )
 
     def __str__(self):
         return self.name

@@ -6,9 +6,16 @@ from django.forms import ModelChoiceField, ModelMultipleChoiceField
 class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
-        fields = ['name', 'image', 'method', 'ingredients', 'category' ]
-        exclude = ['date_added', 'prep_time']
-        labels = {'name':'Name', 'image':'Image', 'prep_time':'Preparation Time', 'method':'Method', 'ingredients':'Ingredients'}
+        fields = ["name", "image", "method", "ingredients", "category"]
+        exclude = ["date_added", "prep_time"]
+        labels = {
+            "name": "Name",
+            "image": "Image",
+            "prep_time": "Preparation Time",
+            "method": "Method",
+            "ingredients": "Ingredients",
+        }
+
 
 # class RecipeForm(forms.Form):
 #     name = forms.CharField(max_length=150, label='Name')

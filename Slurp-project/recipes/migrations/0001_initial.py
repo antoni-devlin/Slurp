@@ -9,41 +9,74 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=150)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=150)),
             ],
-            options={
-                'verbose_name': 'Category',
-                'verbose_name_plural': 'Categories',
-            },
+            options={"verbose_name": "Category", "verbose_name_plural": "Categories",},
         ),
         migrations.CreateModel(
-            name='Ingredient',
+            name="Ingredient",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=150)),
-                ('quantity', models.PositiveIntegerField()),
-                ('price', models.DecimalField(blank=True, decimal_places=2, max_digits=4, null=True)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=150)),
+                ("quantity", models.PositiveIntegerField()),
+                (
+                    "price",
+                    models.DecimalField(
+                        blank=True, decimal_places=2, max_digits=4, null=True
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Recipe',
+            name="Recipe",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=150)),
-                ('date_added', models.DateField(auto_now_add=True)),
-                ('image', models.ImageField(null=True, upload_to='images')),
-                ('prep_time', models.TimeField(null=True)),
-                ('method', ckeditor.fields.RichTextField()),
-                ('category', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='recipes.Category')),
-                ('ingredients', models.ManyToManyField(to='recipes.Ingredient')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=150)),
+                ("date_added", models.DateField(auto_now_add=True)),
+                ("image", models.ImageField(null=True, upload_to="images")),
+                ("prep_time", models.TimeField(null=True)),
+                ("method", ckeditor.fields.RichTextField()),
+                (
+                    "category",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to="recipes.Category",
+                    ),
+                ),
+                ("ingredients", models.ManyToManyField(to="recipes.Ingredient")),
             ],
         ),
     ]
